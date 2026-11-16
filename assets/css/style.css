@@ -1,0 +1,357 @@
+/* ==============================================================
+   NANDA HANDPHONE - MODERN MARKETPLACE STYLESHEET
+   Bootstrap 5 Complementary CSS
+   ============================================================== */
+
+:root {
+  --nh-primary: #1e3a8a;       /* Deep Royal Blue */
+  --nh-primary-light: #3b82f6; /* Modern Blue */
+  --nh-secondary: #0f172a;     /* Dark Slate */
+  --nh-accent: #0ea5e9;        /* Sky Blue */
+  --nh-success: #10b981;       /* Emerald */
+  --nh-warning: #f59e0b;       /* Amber */
+  --nh-danger: #ef4444;        /* Rose Red */
+  --nh-bg-light: #f8fafc;      /* Clean Off-white */
+  --nh-card-bg: #ffffff;
+  --nh-text-main: #1e293b;
+  --nh-text-muted: #64748b;
+  --nh-border: #e2e8f0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--nh-bg-light);
+  color: var(--nh-text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Navbar */
+.navbar-custom {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-brand-logo {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-brand-logo .brand-badge {
+  background: #38bdf8;
+  color: #0f172a;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* Hero Section */
+.hero-banner {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0284c7 100%);
+  color: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  margin-bottom: 35px;
+  box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Category Filter Pills */
+.filter-pills .nav-link {
+  color: var(--nh-text-muted);
+  font-weight: 500;
+  border-radius: 50rem;
+  padding: 8px 18px;
+  background: white;
+  border: 1px solid var(--nh-border);
+  margin-right: 8px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.filter-pills .nav-link:hover {
+  color: var(--nh-primary);
+  border-color: var(--nh-primary-light);
+  transform: translateY(-1px);
+}
+
+.filter-pills .nav-link.active {
+  background-color: var(--nh-primary);
+  color: white;
+  border-color: var(--nh-primary);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+}
+
+/* Product Card */
+.product-card {
+  border: 1px solid var(--nh-border);
+  border-radius: 16px;
+  background: white;
+  transition: all 0.25s ease;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
+  border-color: #cbd5e1;
+}
+
+.product-img-wrapper {
+  position: relative;
+  padding-top: 85%;
+  background-color: #f1f5f9;
+  overflow: hidden;
+}
+
+.product-img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-img-wrapper img {
+  transform: scale(1.04);
+}
+
+.product-badge-condition {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 50rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.badge-baru {
+  background-color: var(--nh-success);
+  color: white;
+}
+
+.badge-bekas {
+  background-color: var(--nh-warning);
+  color: #78350f;
+}
+
+.product-card-body {
+  padding: 16px 18px 18px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-brand {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--nh-accent);
+  letter-spacing: 0.5px;
+}
+
+.product-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--nh-text-main);
+  margin-top: 4px;
+  margin-bottom: 8px;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--nh-primary);
+  margin-bottom: 12px;
+}
+
+.product-stock {
+  font-size: 0.8rem;
+  color: var(--nh-text-muted);
+}
+
+/* Detail Product Page */
+.detail-img-box {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--nh-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  background: white;
+}
+
+.detail-specs-table th {
+  width: 32%;
+  color: var(--nh-text-muted);
+  font-weight: 600;
+  background-color: #f8fafc;
+}
+
+/* Cart Page */
+.cart-table th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+  color: var(--nh-text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cart-table td {
+  vertical-align: middle;
+}
+
+.cart-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--nh-border);
+}
+
+.qty-control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--nh-border);
+  border-radius: 8px;
+  background: white;
+  overflow: hidden;
+}
+
+.qty-control button {
+  border: none;
+  background: #f8fafc;
+  width: 34px;
+  height: 34px;
+  font-weight: bold;
+  color: var(--nh-text-main);
+  transition: background 0.15s;
+}
+
+.qty-control button:hover {
+  background: #e2e8f0;
+}
+
+.qty-control input {
+  width: 48px;
+  text-align: center;
+  border: none;
+  font-weight: 600;
+  outline: none;
+}
+
+/* Order Summary Box */
+.summary-box {
+  background: white;
+  border: 1px solid var(--nh-border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+}
+
+/* Invoice / Struk */
+.invoice-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--nh-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.invoice-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: white;
+  padding: 30px;
+}
+
+/* Admin Dashboard */
+.stat-card {
+  border-radius: 16px;
+  border: none;
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-card-blue { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+.stat-card-green { background: linear-gradient(135deg, #065f46 0%, #10b981 100%); }
+.stat-card-amber { background: linear-gradient(135deg, #92400e 0%, #f59e0b 100%); }
+.stat-card-purple { background: linear-gradient(135deg, #4c1d95 0%, #8b5cf6 100%); }
+
+/* Footer */
+footer {
+  background-color: #0f172a;
+  color: #94a3b8;
+  padding-top: 45px;
+  padding-bottom: 25px;
+  margin-top: 60px;
+  border-top: 1px solid #1e293b;
+}
+
+footer a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: #38bdf8;
+}
+
+/* Print styling */
+@media print {
+  .no-print, header, footer, .navbar {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+  .invoice-card {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}

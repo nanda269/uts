@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  
+  <rect width="500" height="500" fill="url(#bgGrad)" rx="24"/>
+  
+  <!-- Subtle Grid Accent -->
+  <circle cx="250" cy="220" r="160" fill="white" opacity="0.05"/>
+  <circle cx="250" cy="220" r="110" fill="white" opacity="0.08"/>
+
+  <!-- Gadget Frame Body -->
+  <g filter="url(#shadow)">
+    <rect x="160" y="70" width="180" height="290" rx="32" fill="#0f172a" stroke="#ffffff" stroke-width="3" stroke-opacity="0.4"/>
+    <!-- Screen -->
+    <rect x="170" y="85" width="160" height="260" rx="24" fill="#1e293b"/>
+    <!-- Speaker / Notch / Camera pill -->
+    <rect x="220" y="93" width="60" height="10" rx="5" fill="#334155"/>
+    <!-- Screen Content Display -->
+    <rect x="185" y="125" width="130" height="70" rx="12" fill="#64748b" opacity="0.85"/>
+    <circle cx="215" cy="160" r="15" fill="#ffffff" opacity="0.9"/>
+    <rect x="240" y="152" width="60" height="6" rx="3" fill="#ffffff"/>
+    <rect x="240" y="164" width="40" height="5" rx="2.5" fill="#ffffff" opacity="0.7"/>
+
+    <circle cx="205" cy="225" r="14" fill="#38bdf8" opacity="0.9"/>
+    <circle cx="250" cy="225" r="14" fill="#a855f7" opacity="0.9"/>
+    <circle cx="295" cy="225" r="14" fill="#22c55e" opacity="0.9"/>
+    
+    <circle cx="250" cy="315" r="18" fill="white" opacity="0.15"/>
+    <circle cx="250" cy="315" r="8" fill="white" opacity="0.4"/>
+  </g>
+
+  <!-- Product Labels -->
+  <rect x="30" y="380" width="440" height="90" rx="16" fill="rgba(15, 23, 42, 0.75)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <text x="250" y="420" font-family="'Segoe UI', Roboto, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">Baseus 33W GaN</text>
+  <text x="250" y="448" font-family="'Segoe UI', Roboto, Helvetica, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Fast Charger Type-C</text>
+</svg>

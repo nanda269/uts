@@ -1,0 +1,255 @@
+{
+  "info": {
+    "_postman_id": "b182743a-92f1-4df2-8c45-market-uts-012",
+    "name": "REST API Marketplace Handphone (Soal 12)",
+    "description": "Koleksi Postman untuk pengujian Web Service / REST API Marketplace Nanda Handphone menggunakan PHP Native dan MySQLi.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. GET - Informasi REST API",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/index.php",
+          "host": ["{{base_url}}"],
+          "path": ["api", "index.php"]
+        },
+        "description": "Mengambil informasi umum mengenai layanan REST API dan daftar endpoint yang tersedia."
+      },
+      "response": []
+    },
+    {
+      "name": "2. GET - Semua Produk Handphone",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/produk.php",
+          "host": ["{{base_url}}"],
+          "path": ["api", "produk.php"]
+        },
+        "description": "Mengambil seluruh data produk handphone dan aksesoris dari database katalog."
+      },
+      "response": []
+    },
+    {
+      "name": "3. GET - Detail Produk by ID (Valid)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/produk.php?id=1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "produk.php"],
+          "query": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        },
+        "description": "Mengambil detail data 1 produk spesifik berdasarkan query parameter ID (Status: 200 OK)."
+      },
+      "response": []
+    },
+    {
+      "name": "4. GET - Detail Produk by ID (Not Found)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/produk.php?id=9999",
+          "host": ["{{base_url}}"],
+          "path": ["api", "produk.php"],
+          "query": [
+            {
+              "key": "id",
+              "value": "9999"
+            }
+          ]
+        },
+        "description": "Pengujian negatif: mengambil produk dengan ID yang tidak ada di database (Status: 404 Not Found)."
+      },
+      "response": []
+    },
+    {
+      "name": "5. GET - Filter Produk by Kategori",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/produk.php?kategori=1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "produk.php"],
+          "query": [
+            {
+              "key": "kategori",
+              "value": "1"
+            }
+          ]
+        },
+        "description": "Mengambil produk berdasarkan filter ID kategori (contoh kategori 1: Smartphone Android)."
+      },
+      "response": []
+    },
+    {
+      "name": "6. GET - Semua Kategori Produk",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/kategori.php",
+          "host": ["{{base_url}}"],
+          "path": ["api", "kategori.php"]
+        },
+        "description": "Mengambil daftar seluruh kategori produk beserta jumlah produk terkait."
+      },
+      "response": []
+    },
+    {
+      "name": "7. POST - Buat Pesanan Baru (Valid)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nama_pembeli\": \"Muhammad Nanda\",\n  \"no_hp\": \"081234567890\",\n  \"alamat_pengiriman\": \"Jl. Pemuda No. 45, Semarang Tengah\",\n  \"metode_pembayaran\": \"Transfer Bank BCA\",\n  \"catatan\": \"Mohon dipacking bubble wrap tebal warna hitam ya\",\n  \"items\": [\n    {\n      \"id_produk\": 1,\n      \"jumlah\": 1\n    },\n    {\n      \"id_produk\": 7,\n      \"jumlah\": 2\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/pesanan.php",
+          "host": ["{{base_url}}"],
+          "path": ["api", "pesanan.php"]
+        },
+        "description": "Membuat transaksi pesanan baru via API dengan pemotongan stok otomatis dan transaksi ACID (Status: 201 Created)."
+      },
+      "response": []
+    },
+    {
+      "name": "8. POST - Buat Pesanan (Validasi Field Kosong)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nama_pembeli\": \"\",\n  \"no_hp\": \"\",\n  \"alamat_pengiriman\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/pesanan.php",
+          "host": ["{{base_url}}"],
+          "path": ["api", "pesanan.php"]
+        },
+        "description": "Pengujian negatif: pengiriman form kosong tanpa field wajib (Status: 400 Bad Request)."
+      },
+      "response": []
+    },
+    {
+      "name": "9. POST - Buat Pesanan (Stok Melebihi Batas)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nama_pembeli\": \"Pembeli Borongan\",\n  \"no_hp\": \"089912345678\",\n  \"alamat_pengiriman\": \"Jl. Gajah Mada No. 12, Semarang\",\n  \"metode_pembayaran\": \"Transfer Bank BCA\",\n  \"items\": [\n    {\n      \"id_produk\": 5,\n      \"jumlah\": 99999\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/pesanan.php",
+          "host": ["{{base_url}}"],
+          "path": ["api", "pesanan.php"]
+        },
+        "description": "Pengujian negatif: memesan barang melebihi stok yang tersedia (Status: 422 Unprocessable Entity)."
+      },
+      "response": []
+    },
+    {
+      "name": "10. GET - Lacak Pesanan by Kode Invoice",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/pesanan.php?kode=NHP-20261101-001",
+          "host": ["{{base_url}}"],
+          "path": ["api", "pesanan.php"],
+          "query": [
+            {
+              "key": "kode",
+              "value": "NHP-20261101-001"
+            }
+          ]
+        },
+        "description": "Pelacakan rincian pesanan berdasarkan nomor invoice unik (Status: 200 OK)."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/utspakhary",
+      "type": "string"
+    }
+  ]
+}
